@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Ruffle",
+    "image": "icons/ruffle.webp",
+    "url": "apps/ruffle/index.html",
+    "category": "App",
+    "favicon": "apps/ruffle/ruffle.webp"
+  },
+  {
+    "name": "Voxiles",
+    "image": "icons/vox.webp",
+    "url": "apps/vox/index.html",
+    "category": "App",
+    "favicon": "apps/voxiles/voxiles.webp"
+  },
+  {
+    "name": "Emulator.js",
+    "image": "icons/emulatorjs.webp",
+    "url": "apps/emulatorjs/index.html",
+    "category": "App",
+    "favicon": "apps/emulatorjs/emulatorjs.webp"
+  },
+  {
+    "name": "GBA Online",
+    "image": "icons/gbaonline.webp",
+    "url": "apps/gba/index.html",
+    "category": "App",
+    "favicon": "apps/gba/gbaonline.webp"
+  },
+  {
+    "name": "WebRetro",
+    "image": "icons/webretro.webp",
+    "url": "apps/gfiles/rarch/index.html",
+    "category": "App",
+    "favicon": "apps/gfiles/rarch/webretro.webp"
+  },
+  {
+    "name": "Windows 12",
+    "image": "icons/win12.webp",
+    "url": "apps/win12/boot.html",
+    "category": "App",
+    "favicon": "win12/favicon.ico"
+  },
+  {
+    "name": "Windows 11",
+    "image": "icons/win11.webp",
+    "url": "apps/win11/index.html",
+    "category": "App",
+    "favicon": "win11/favicon.ico"
+  },
+  {
+    "name": "Windows 98",
+    "image": "icons/win98.webp",
+    "url": "apps/win98/index.html",
+    "category": "App",
+    "favicon": "win98/win98.webp"
+  },
+  {
+    "name": "Windows 93",
+    "image": "icons/win93.webp",
+    "url": "apps/win93/win93.html",
+    "category": "App",
+    "favicon": "win93/win93.webp"
+  },
+  {
+    "name": "Windows XP",
+    "image": "icons/xp.webp",
+    "url": "apps/vmworkstationpro9/index.html",
+    "category": "Game",
+    "favicon": "apps/vmworkstationpro9/vmworkstationpro9.webp"
+  },
+  {
+    "name": "Ascii Cam",
+    "image": "icons/asciicam.webp",
+    "url": "apps/asciicam/index.html",
+    "category": "Game",
+    "favicon": "apps/.webp"
+  },
+  {
+    "name": "v86",
+    "image": "icons/v86.webp",
+    "url": "apps/v86/index.html",
+    "category": "Game",
+    "favicon": "apps/v86/v86.webp"
+  },
+  {
+    "name": "Calculator",
+    "image": "icons/calculator.webp",
+    "url": "apps/Calculator/index.html",
+    "category": "App",
+    "favicon": "favicon/favicon.ico"
+  },
+  {
+    "name": "HTML Coder",
+    "image": "icons/htmlcoder.webp",
+    "url": "apps/htmlcoder/index.html",
+    "category": "Game",
+    "favicon": "apps/htmlcoder/htmlcoder.webp"
+  },
+  {
+    "name": "Text Editor",
+    "image": "icons/txtedit.webp",
+    "url": "apps/texteditor/index.html",
+    "category": "Game",
+    "favicon": ""
+  },
+  {
+    "name": "Background Remover",
+    "image": "icons/bgremover.webp",
+    "url": "apps/bgremover/index.html",
+    "category": "Game",
+    "favicon": "apps/bgremover/bgremover.webp"
+  },
+  {
+    "name": "Turbowarp",
+    "image": "icons/turbowarp.webp",
+    "url": "apps/turbowarp/index.html",
+    "category": "Game",
+    "favicon": "apps/turbowarp/turbowarp.webp"
+  },
+  {
+    "name": "Scratch 1",
+    "image": "icons/scratch1.webp",
+    "url": "apps/scratch1/index.html",
+    "category": "Game",
+    "favicon": "apps/scratch1/scratch1.webp"
+  },
+  {
+    "name": "Scratch 2",
+    "image": "icons/scratch2.webp",
+    "url": "apps/scratch2/index.html",
+    "category": "Game",
+    "favicon": "apps/scratch2/scratch2.webp"
+  },
+  {
+    "name": "Thirty Dollar Website",
+    "image": "icons/thirtydollarwebsite.webp",
+    "url": "apps/thirtydollarwebsite/index.html",
+    "category": "Game",
+    "favicon": "apps/thirtydollarwebsite/thirtydollarwebsite.webp"
+  }
+]

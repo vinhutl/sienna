@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>games - sienna.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome for modal/tab/footer icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/gstyle.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+  </style>
+</head>
+
+<body>
+  <div id="sidebar-container"></div>
+
+  <div class="container">
+    <div class="header">
+      <div class="title">All Apps</div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <div class="search-row">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search apps by name..." />
+        <div id="category-dropdown" class="filter-dropdown" aria-haspopup="listbox" aria-expanded="false"></div>
+      </div>
+    </div>
+
+    <!-- Sections row: Favorites and Games (titled sections, centered) -->
+    <div class="sections-row">
+      <section id="favorites-section" class="favorites-section">
+        <div class="section-header">
+          <div class="section-title">Favorites</div>
+        </div>
+        <div id="favorites-grid" class="games-grid"></div>
+      </section>
+
+      <section id="games-section" class="games-section">
+        <div class="section-header">
+          <div class="section-title">Apps</div>
+        </div>
+        <div id="games-container" class="games-grid loading">Loading apps...</div>
+      </section>
+    </div>
+  </div>
+
+    <!-- Enhanced Game Modal with Tabs -->
+  <div id="game-modal" class="game-modal" role="dialog" aria-modal="true" aria-labelledby="modal-game-title">
+    <div class="game-modal-content">
+      <!-- Tab Bar -->
+      <div class="tab-bar" id="tab-bar">
+        <button class="new-tab-btn" id="new-tab-btn" title="Open new tab">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+      <!-- Modal progress bar -->
+      <div class="modal-progress" id="modal-progress">
+        <div class="modal-progress-bar" id="modal-progress-bar"></div>
+      </div>
+      
+      <!-- Firefox-style footer moved below Tab Bar -->
+      <div class="firefox-footer">
+        <!-- Left: Navigation buttons -->
+        <button id="back-btn" class="nav-button" title="Go back" disabled>
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        
+        <button id="forward-btn" class="nav-button" title="Go forward" disabled>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        
+        <button id="refresh-btn" class="nav-button" title="Refresh">
+          <i class="fas fa-redo"></i>
+        </button>
+
+        <!-- Center: URL bar with keep-alive toggle -->
+        <div class="url-bar-container">
+          <input 
+            type="text" 
+            id="url-bar" 
+            class="url-bar" 
+            value="yellownet://Night_Games"
+            readonly
+            title="Game URL"
+          >
+          <div id="keep-alive-toggle" class="keep-alive-toggle inactive" title="Click to toggle keep game loaded" role="button" aria-pressed="false">
+            <i class="keep-alive-icon fas fa-play" aria-hidden="true"></i>
+            <span class="keep-alive-label">Keep Running</span>
+          </div>
+        </div>
+
+        <!-- Right: Action buttons -->
+        <button id="fullscreen-btn" class="action-button fullscreen-btn" title="Toggle Fullscreen">
+          <i class="fas fa-expand"></i>
+        </button>
+
+        <button id="open-new-tab-btn" class="action-button open-btn" title="Open in new tab">
+          <i class="fas fa-external-link-alt"></i>
+        </button>
+        
+        <button id="close-modal-btn" class="action-button close-btn" title="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+  <!-- Iframe container (now below footer) -->
+      <div class="iframe-container" id="iframe-container">
+        <!-- Game Selection Screen -->
+        <div id="game-selection-screen" class="game-selection-screen">
+          <div class="game-selection-header">
+            <h2>Choose an App</h2>
+            <p>Select an app to use in this tab</p>
+          </div>
+          <div class="game-selection-content">
+            <div class="game-selection-search">
+              <i class="fa fa-search"></i>
+              <input
+                type="text"
+                id="game-selection-search"
+                placeholder="Search games..."
+              />
+            </div>
+            <div id="game-selection-grid" class="game-selection-grid"></div>
+          </div>
+        </div>
+
+        <!-- Empty state when no tabs are open -->
+        <div class="empty-state" id="empty-state">
+          <i class="fas fa-gamepad"></i>
+          <h3>No apps open</h3>
+          <p>Open an app to start using, or click the + button to add a new tab</p>
+        </div>
+        
+        <!-- Custom Loading Screen -->
+        <div id="custom-loading-screen" class="custom-loading-screen"></div>
+        
+        <!-- Loading spinner -->
+        <div class="loading-spinner" id="loading-spinner"></div>
+      </div>
+      </div>
+    </div>
+    <!-- Simple text below modal content (now a sibling so it sits below the modal) -->
+    <p class="modal-helper-text">
+      Yellow Network Browser v1 | Not Loading? Try refreshing or open a app.
+      <a href="contact.html">Report error</a>
+    </p>
+    
+    <!-- Exit message -->
+    <div id="exit-message" class="exit-message">
+      Click outside to exit
+    </div>
+  </div>
+
+  <script src="js/sidebar.js"></script>
+  <script src="js/apps.js"></script>
+</body>
+</html>
