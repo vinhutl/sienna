@@ -2422,6 +2422,20 @@
     "favicon": "mages/helixjum/helixjump.webp"
   },
   {
+    "name": "Stack Bounce",
+    "image": "icons/stackbounce.webp",
+    "url": "mages/stackbounce/index.html",
+    "category": "Casual",
+    "favicon": "mages/stackbounce/stackbounce.webp"
+  },
+  {
+    "name": "Stacker",
+    "image": "icons/stacker.webp",
+    "url": "mages/stacker/index.html",
+    "category": "Casual",
+    "favicon": "mages/stacker/stacker.webp"
+  },
+  {
     "name": "Hextris",
     "image": "icons/hextris.webp",
     "url": "mages/hextris/index.html",
@@ -2562,9 +2576,9 @@
     "favicon": "mages/littlealchemy2/littlealchemy2.webp"
   },
   {
-    "name": "Low's Adventures",
+    "name": "Low's Adventures 2",
     "image": "icons/lowsadventures2.webp",
-    "url": "mages/lowsadventures/index.html",
+    "url": "mages/lowsadventures2/index.html",
     "category": "Adventure",
     "favicon": "mages/lowsadventures/lowsadventures.webp"
   },
@@ -2665,13 +2679,6 @@
     "url": "mages/supermarioconstruct/index.html",
     "category": "Casual",
     "favicon": "mages/supermarioconstruct/supermarioconstruct.webp"
-  },
-  {
-    "name": "Banjo Kazooie",
-    "image": "icons/banjokazooie.webp",
-    "url": "mages/banjokazooie/index.html",
-    "category": "Casual",
-    "favicon": "mages/banjokazooie/banjokazooie.webp"
   },
   {
     "name": "Donkey Kong",
@@ -3351,20 +3358,6 @@
     "url": "mages/sprinter/index.html",
     "category": "Casual",
     "favicon": "mages/sprinter/sprinter.webp"
-  },
-  {
-    "name": "Stack Bounce",
-    "image": "icons/stackbounce.webp",
-    "url": "mages/stackbounce/index.html",
-    "category": "Casual",
-    "favicon": "mages/stackbounce/stackbounce.webp"
-  },
-  {
-    "name": "Stacker",
-    "image": "icons/stacker.webp",
-    "url": "mages/stacker/index.html",
-    "category": "Casual",
-    "favicon": "mages/stacker/stacker.webp"
   },
   {
     "name": "Star Clicker",
