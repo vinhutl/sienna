@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Night | Pokémon</title>
+    <script src="../../js/themes.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --background-color: #ffffff; /* White background */
+    --background-image: none; /* No background image */
+    --text-color: #000000; /* Black text color */
+    --primary-color: #f0f0f0; /* Light gray for cards */
+}
+
+* {
+    color: #000000; /* Set all text to black */
+}
+
+body {
+    background-color: var(--background-color);
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    margin: 10px;
+}
+
+h2 {
+    margin: 3px;
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+a:hover {
+    color: var(--text-color);
+}
+
+#games {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+    justify-items: center;
+    margin: 0 auto;
+}
+
+.game-card {
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    width: 250px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid #ccc; /* Light gray border */
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Darker shadow for contrast */
+}
+
+.game-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.game-card p {
+    margin: 0;
+    padding: 8px;
+    font-size: 0.875rem;
+    background-color: rgba(245, 248, 40, 0.8); /* Semi-transparent white */
+    border-radius: 0 0 15px 15px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+        /* Style for the Pokémon Games image */
+        .pokemon-header {
+            width: 500px; /* Adjust as needed */
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <!-- Replace "Pokémon Games" text with an image -->
+        <img src="../../icons/pokemonlogo.png" alt="pokemon logo" class="pokemon-header" />
+        <h2 id="a"></h2>
+        <br />
+        <div id="games">
+            <div class="game-card">
+                <a href="../pokemonred/index.html">
+                    <img src="../../icons/pokemonred.png" />
+                    <p>Pokémon Red</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemonblue/index.html">
+                    <img src="../../icons/pokemonblue.png" />
+                    <p>Pokémon Blue</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemonyellow/index.html">
+                    <img src="../../icons/pokemonyellow.png" />
+                    <p>Pokémon Yellow</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemongold/index.html">
+                    <img src="../../icons/pokemongold.png" />
+                    <p>Pokémon Gold</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemonsilver/index.html">
+                    <img src="../../icons/pokemonsilver.png" />
+                    <p>Pokémon Silver</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemoncrystal/index.html">
+                    <img src="../../icons/pokemoncrystal.png" />
+                    <p>Pokémon Crystal</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemonbrown/index.html">
+                    <img src="../../icons/pokemonbrown.png" />
+                    <p>Pokémon Brown</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokepink/index.html">
+                    <img src="../../icons/pokepink.png" />
+                    <p>Pokémon Pink</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokeprism/index.html">
+                    <img src="../../icons/pokeprism.png" />
+                    <p>Pokémon Prism</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemonruby/index.html">
+                    <img src="../../icons/pokemonruby.png" />
+                    <p>Pokémon Ruby</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemonsapphire/index.html">
+                    <img src="../../icons/pokemonsapphire.png" />
+                    <p>Pokémon Sapphire</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemonemerald/index.html">
+                    <img src="../../icons/pokemonemerald.png" />
+                    <p>Pokémon Emerald</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemonfirered/index.html">
+                    <img src="../../icons/pokemonfirered.png" />
+                    <p>Pokémon FireRed</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokemonleafgreen/index.html">
+                    <img src="../../icons/pokemonleafgreen.png" />
+                    <p>Pokémon LeafGreen</p>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="../pokeunbound/index.html">
+                    <img src="../../icons/pokeunbound.png" />
+                    <p>Pokémon Unbound</p>
+                </a>
+            </div>
+            <script src="js/stars.js"></script>
+            <script src="js/topbar.js"></script>
+            <script src="js/tabcloaking.js"></script> 
+            <script src="js/cookies.js"></script>
+        </div>
+        <br />
+    </center>
+</body>
+</html>
