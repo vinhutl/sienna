@@ -2,5 +2,6 @@
   "rewrites": [
     { "source": "/g", "destination": "/static/games.html" },
     { "source": "/about", "destination": "/static/about.html" }
-  ]
+  ],
+  "buildCommand": "git lfs install && git lfs pull && next build"
 }

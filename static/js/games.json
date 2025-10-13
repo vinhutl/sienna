@@ -219,28 +219,28 @@
   {
     "name": "Wiggly Paint",
     "image": "icons/wigglypaint.webp",
-    "url": "/mages/wigglypaint/index.html",
+    "url": "mages/wigglypaint/index.html",
     "category": "Strategy",
     "favicon": ""
   },
   {
     "name": "Terraria Scratch",
     "image": "icons/terrariascratch.webp",
-    "url": "/mages/terrariascratch/index.html",
+    "url": "mages/terrariascratch/index.html",
     "category": "Adventure",
     "favicon": ""
   },
   {
     "name": "Terra: Terraria Demake",
     "image": "icons/terra.webp",
-    "url": "/mages/terra/index.html",
+    "url": "mages/terra/index.html",
     "category": "Adventure",
     "favicon": ""
   },
   {
     "name": "Appel",
     "image": "icons/appel.webp",
-    "url": "/mages/appel/index.html",
+    "url": "mages/appel/index.html",
     "category": "Adventure",
     "favicon": ""
   },
