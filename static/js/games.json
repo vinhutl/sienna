@@ -224,9 +224,23 @@
     "favicon": ""
   },
   {
+    "name": "Terraria Scratch",
+    "image": "icons/terrariascratch.webp",
+    "url": "/mages/terrariascratch/index.html",
+    "category": "Adventure",
+    "favicon": ""
+  },
+  {
     "name": "Terra: Terraria Demake",
     "image": "icons/terra.webp",
     "url": "/mages/terra/index.html",
+    "category": "Adventure",
+    "favicon": ""
+  },
+  {
+    "name": "Appel",
+    "image": "icons/appel.webp",
+    "url": "/mages/appel/index.html",
     "category": "Adventure",
     "favicon": ""
   },
@@ -577,6 +591,13 @@
     "name": "Undertale Yellow",
     "image": "icons/undertaleyellow.webp",
     "url": "mages/undertaleyellow/index.html",
+    "category": "Adventure",
+    "favicon": ""
+  },
+  {
+    "name": "Undertale Rejuvenation",
+    "image": "icons/undertalerejuvenation.webp",
+    "url": "mages/undertalerejuvenation/index.html",
     "category": "Adventure",
     "favicon": ""
   },
