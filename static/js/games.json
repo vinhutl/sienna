@@ -329,6 +329,13 @@
     "favicon": "mages/gunbrick/gunbrick.webp"
   },
   {
+    "name": "Speed Stars",
+    "image": "static/icons/speedstars.webp",
+    "url": "static/mages/speedstars/index.html",
+    "category": "Action",
+    "favicon": "mages/speedstars/speedstars.webp"
+  },
+  {
     "name": "OvO",
     "image": "static/icons/ovo.webp",
     "url": "static/mages/ovo/index.html",
