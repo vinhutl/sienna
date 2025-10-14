@@ -1,194 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minecraft / Eaglercraft</title>
-    <script src="../../js/themes.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --background-color: #000000; /* black background */
-            --text-color: #ffffff;       /* white text */
-            --primary-color: #1a1a1a;    /* dark gray for game cards */
-            --background-image: none;    /* disable background image */
-        }
 
-        body {
-            background-color: var(--background-color);
-            background-image: var(--background-image);
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s, background-image 0.3s;
-            font-family: 'Roboto', sans-serif;
-        }
+  <head>
+    <meta charset="UTF-8">
+    <title>Minecraft</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+    
+  <body>
+  <!--//- Menu-->
+<div class="mc-menu">
+  <div class="versions-row">
+    <a class="mc-button full" href="eaglercraft1122/index.html">
+      <div class="title">1.12.2</div>
+    </a>
+    <a class="mc-button full" href="eaglercraft194/index.html">
+      <div class="title">1.9.4</div>
+    </a>
+    <a class="mc-button full" href="eaglercraftx18/index.html">
+      <div class="title">1.8.8</div>
+    </a>
+    <a class="mc-button full" href="eaglercraftbeta173/index.html">
+      <div class="title">1.7.3</div>
+    </a>
+    <a class="mc-button full" href="eaglercraft152/index.html">
+      <div class="title">1.5.2</div>
+    </a>
+    <a class="mc-button full" href="eaglercraftbeta13/index.html">
+      <div class="title">1.3</div>
+    </a>
+    <a class="mc-button full" href="minecraftalpha126/index.html">
+      <div class="title">1.2.6</div>
+    </a>
+    <a class="mc-button full" href="minecraft125/index.html">
+      <div class="title">1.2.5</div>
+    </a>
+    <a class="mc-button full" href="minecraft030/index.html">
+      <div class="title">0.30</div>
+    </a>
+    <a class="mc-button full" href="minecraftindev/index.html">
+      <div class="title">indev</div>
+    </a>
+  </div>
+  <div class="double">
+    <div class="mc-button full">
+      <div class="title">Options</div>
+    </div>
+    <div class="mc-button full">
+      <div class="title">Quit Game</div>
+    </div>
+  </div>
+  <div class="mc-button full lang">
+    <div class="title"><img src="https://i.ibb.co/99187Lk/lang.png" alt=" Lang"/></div>
+  </div>
+</div>
+    <script  src="./script.js"></script>
 
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            color: var(--text-color);
-            margin: 10px;
-        }
-
-        .note {
-            font-size: 0.9em;
-            color: #bbbbbb; /* lighter gray for subtle effect */
-            margin-bottom: 15px;
-        }
-
-        h2 {
-            color: var(--text-color);
-            margin: 3px;
-            font-size: 1.2em;
-        }
-
-        a {
-            color: var(--text-color);
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        a:hover {
-            color: var(--text-color);
-        }
-
-        div#games {
-            width: 100%;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            flex-direction: row;
-            display: flex;
-        }
-
-        div.game {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--primary-color);
-            width: 15%;
-            aspect-ratio: 1 / 1;
-            transition: 0.3s;
-            margin: 20px;
-            border-radius: 15px; 
-        }  
-
-        div.game:hover {
-            transform: scale(1.1);
-            cursor: pointer;
-        }
-
-        img {
-            width: 50%;
-            height: 50%;
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
-    <center>
-        <strong><h1>Eaglercraft Versions</h1></strong>
-        <div class="note">*May Not Be Online*</div>
-        <h2 id="a"></h2>
-        <br />
-        <div id="games">
-            <div class="game">
-                <a href="eaglercraft1122/index.html">
-                    <img src="../../icons/minecraft.png" />
-                    <h2>Eaglercraft 1.12.2</h2>
-                </a>
-            </div>
-            <div class="game">
-                <a href="eaglercraft194/index.html">
-                    <img src="../../icons/minecraft.png" />
-                    <h2>EaglercraftL 1.9.4</h2>
-                </a>
-            </div>
-            <div class="game">
-                <a href="eaglercraftx18/index.html">
-                    <img src="../../icons/minecraft.png" />
-                    <h2>EaglercraftX 1.8.8</h2>
-                </a>
-            </div>
-            <div class="game">
-                <a href="eaglercraftbeta173/index.html">
-                    <img src="../../icons/minecraft.png" />
-                    <h2>Eaglercraft Beta 1.7.3</h2>
-                </a>
-            </div>
-            <div class="game">
-                <a href="eaglercraft152/">
-                    <img src="../../icons/minecraft.png" />
-                    <h2>Eaglercraft 1.5.2</h2>
-                </a>
-            </div>
-            <div class="game">
-                <a href="eaglercraftbeta13/index.html">
-                    <img src="../../icons/minecraft.png" />
-                    <h2>Eaglercraft Beta 1.3</h2>
-                </a>
-            </div>
-            <div class="game">
-                <a href="minecraftalpha126/index.html">
-                    <img src="../../icons/minecraft.png" />
-                    <h2>Minecraft Alpha 1.2.6</h2>
-                </a>
-            </div>
-            <div class="game">
-                <a href="minecraft125/index.html">
-                    <img src="../../icons/minecraft.png" />
-                    <h2>Minecraft 1.2.5</h2>
-                </a>
-            </div>
-            <div class="game">
-                <a href="minecraft030/index.html">
-                    <img src="../../icons/minecraft.png" />
-                    <h2>Minecraft 0.30</h2>
-                </a>
-            </div>
-            <div class="game">
-                <a href="minecraftindev/index.html">
-                    <img src="../../icons/minecraft.png" />
-                    <h2>Minecraft Indev</h2>
-                </a>
-            </div>
-        </div>
-        <script>
-            // keep your theme handling code, but our :root overrides above will always force black/white
-            document.addEventListener("DOMContentLoaded", function () {
-                const savedTheme = localStorage.getItem("night.theme") || "theme1";
-                const customTheme = JSON.parse(localStorage.getItem("night.customTheme"));
-
-                if (savedTheme === "theme7" && customTheme) {
-                    for (const [key, value] of Object.entries(customTheme)) {
-                        document.documentElement.style.setProperty(key, value);
-                    }
-                } else {
-                    const theme = themes[savedTheme];
-                    if (theme) {
-                        for (const [key, value] of Object.entries(theme)) {
-                            document.documentElement.style.setProperty(key, value);
-                        }
-                    }
-                }
-                const customBackgroundImage = localStorage.getItem("night.customBackgroundImage");
-                console.log(customBackgroundImage);
-                if (customBackgroundImage) {
-                    document.documentElement.style.setProperty("--background-image", `url('${customBackgroundImage}')`);
-                }
-            });
-        </script>
-        <br />
-    </center>
-</body>
+  </body>
+  
 </html>

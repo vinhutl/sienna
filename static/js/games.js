@@ -224,7 +224,7 @@ loadFavorites();
 // ===============================
 // Load games JSON
 // ===============================
-fetch('js/games.json')
+fetch('static/js/games.json')
   .then(response => {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
@@ -276,70 +276,102 @@ function loadGames() {
   container.className = 'games-grid';
   container.innerHTML = '';
 
+  // Bind a single delegated click handler once to avoid per-card listeners
+  if (!container.dataset.delegationBound) {
+    container.addEventListener('click', (e) => {
+      const favBtn = e.target.closest('.favorite-btn');
+      if (favBtn && container.contains(favBtn)) {
+        e.stopPropagation();
+        const card = favBtn.closest('.game-card');
+        if (!card) return;
+        const name = card.dataset.name;
+        const game = (Array.isArray(games) ? games : []).find(g => g && g.name === name);
+        if (game) toggleFavorite(game);
+        return;
+      }
+
+      const card = e.target.closest('.game-card');
+      if (card && container.contains(card)) {
+        e.preventDefault();
+        e.stopPropagation();
+        const name = card.dataset.name;
+        const url = card.dataset.url;
+        if (url && name) {
+          if (typeof openModal === 'function') {
+            openModal(url, name);
+          } else if (typeof openGameModal === 'function') {
+            openGameModal(url, name);
+          } else {
+            console.error('No openModal() or openGameModal() found.');
+          }
+        }
+      }
+    });
+    container.dataset.delegationBound = '1';
+  }
+
   // Apply category filter
   const filteredGames = selectedCategory && selectedCategory !== 'All'
     ? games.filter(g => (Array.isArray(g.categories) ? g.categories.includes(selectedCategory) : g.category === selectedCategory))
     : games;
 
-  filteredGames.forEach(game => {
-    const card = document.createElement('div');
-    card.className = 'game-card';
-    card.dataset.name = game.name;
-    card.dataset.url = game.url;
+  // Incrementally render to avoid freezing the main thread
+  const CHUNK_SIZE = 50;
+  let index = 0;
+  const total = filteredGames.length;
 
-    // Favorite button
-  const favBtn = document.createElement('button');
-  favBtn.className = 'favorite-btn';
-  favBtn.title = 'Add to favorites';
-  // start with outline icon
-  favBtn.innerHTML = '<i class="far fa-heart"></i>';
-    // prevent clicks bubbling to card click
-    favBtn.addEventListener('click', (ev) => {
-      ev.stopPropagation();
-      toggleFavorite(game);
-    });
+  const schedule = (cb) => {
+    if (window.requestIdleCallback) return window.requestIdleCallback(cb);
+    return window.requestAnimationFrame(() => cb({ timeRemaining: () => 0 }));
+  };
 
-    // mark active if favorited
-    if (isFavorited(game)) {
-      favBtn.classList.add('active');
-      favBtn.title = 'Remove from favorites';
-      // switch to filled icon
-      const icon = favBtn.querySelector('i');
-      if (icon) { icon.classList.remove('far'); icon.classList.add('fas'); }
-    }
+  const renderChunk = (deadline) => {
+    const frag = document.createDocumentFragment();
+    let count = 0;
+    while (index < total && count < CHUNK_SIZE) {
+      const game = filteredGames[index++];
+      const card = document.createElement('div');
+      card.className = 'game-card';
+      card.dataset.name = game.name;
+      card.dataset.url = game.url;
 
-    const imageHTML = game.image
-      ? `<img src="${game.image}" alt="${game.name}" />`
-      : `<div class="game-card-image-placeholder">🎮</div>`;
-
-    card.innerHTML = `
-      <div class="game-card-image">${imageHTML}</div>
-      <div class="game-card-content">
-        <div class="game-card-title">${game.name}</div>
-      </div>
-    `;
-    card.appendChild(favBtn);
-
-    // ✅ Hook into your modal system properly
-    card.addEventListener('click', e => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      // Check if modal method exists
-      if (typeof openModal === 'function') {
-        openModal(game.url, game.name); // ✅ correct parameter order
-      } else if (typeof openGameModal === 'function') {
-        openGameModal(game.url, game.name);
-      } else {
-        console.error('No openModal() or openGameModal() found.');
+      const favBtn = document.createElement('button');
+      favBtn.className = 'favorite-btn';
+      favBtn.title = 'Add to favorites';
+      favBtn.innerHTML = '<i class="far fa-heart"></i>';
+      if (isFavorited(game)) {
+        favBtn.classList.add('active');
+        favBtn.title = 'Remove from favorites';
+        const icon = favBtn.querySelector('i');
+        if (icon) { icon.classList.remove('far'); icon.classList.add('fas'); }
       }
-    });
 
-    container.appendChild(card);
-  });
+      const imageHTML = game.image
+        ? `<img src="${game.image}" alt="${game.name}" loading="lazy" />`
+        : `<div class="game-card-image-placeholder">\ud83c\udfae</div>`;
 
-    // Update favorites UI after building the games list
-    renderFavorites();
+      card.innerHTML = `
+        <div class="game-card-image">${imageHTML}</div>
+        <div class="game-card-content">
+          <div class="game-card-title">${game.name}</div>
+        </div>
+      `;
+      card.appendChild(favBtn);
+
+      frag.appendChild(card);
+      count++;
+    }
+    container.appendChild(frag);
+
+    if (index < total) {
+      schedule(renderChunk);
+    } else {
+      // Update favorites UI after building the games list
+      renderFavorites();
+    }
+  };
+
+  schedule(renderChunk);
 }
 
 
@@ -722,9 +754,6 @@ toggleFullscreen() {
               tab.iframe.src = '';
             }
           });
-          if (typeof customLoadingScreen !== 'undefined' && customLoadingScreen) {
-            customLoadingScreen.classList.remove('active', 'fade-out');
-          }
         }, 300);
       }
 
@@ -1514,6 +1543,46 @@ toggleFullscreen() {
         } else {
           console.log('Notification:', message);
         }
+      }
+
+      // Basic history navigation between tabs based on navigationHistory/currentHistoryIndex
+      navigateBack() {
+        if (currentHistoryIndex <= 0) return;
+        currentHistoryIndex--;
+        const entry = navigationHistory[currentHistoryIndex];
+        if (!entry) return;
+        // Switch to a tab with the same game name if exists; otherwise open a new tab
+        let existingId = null;
+        this.tabs.forEach((tab, id) => {
+          if (!tab.isGameSelection && tab.name.toLowerCase() === entry.name.toLowerCase()) {
+            existingId = id;
+          }
+        });
+        if (existingId) {
+          this.switchToTab(existingId);
+        } else {
+          this.createTab(entry.url, entry.name);
+        }
+        this.updateNavigationButtons();
+      }
+
+      navigateForward() {
+        if (currentHistoryIndex >= navigationHistory.length - 1) return;
+        currentHistoryIndex++;
+        const entry = navigationHistory[currentHistoryIndex];
+        if (!entry) return;
+        let existingId = null;
+        this.tabs.forEach((tab, id) => {
+          if (!tab.isGameSelection && tab.name.toLowerCase() === entry.name.toLowerCase()) {
+            existingId = id;
+          }
+        });
+        if (existingId) {
+          this.switchToTab(existingId);
+        } else {
+          this.createTab(entry.url, entry.name);
+        }
+        this.updateNavigationButtons();
       }
     }
 

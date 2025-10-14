@@ -1,221 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Night | Pokémon</title>
-    <script src="../../js/themes.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-:root {
-    --background-color: #ffffff; /* White background */
-    --background-image: none; /* No background image */
-    --text-color: #000000; /* Black text color */
-    --primary-color: #f0f0f0; /* Light gray for cards */
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokémon: Yellow Net Ed.</title>
+  <style>
+    @font-face {
+      font-family: 'pokemon';
+      src: url('font.ttf');
+    }
 
-* {
-    color: #000000; /* Set all text to black */
-}
+    body {
+      background: linear-gradient(#7ec0ee, #bfefff);
+      font-family: 'pokemon', 'Press Start 2P', monospace;
+      user-select: none;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+      image-rendering: pixelated;
+    }
 
-body {
-    background-color: var(--background-color);
-    background-image: var(--background-image);
-    background-size: cover;
-    background-position: center;
-    transition: background-color 0.3s, color 0.3s, background-image 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    font-family: 'Roboto', sans-serif;
-}
+    .title-box {
+      text-align: center;
+      margin-bottom: 25px;
+      background: #ffffff;
+      border: 4px solid #3c5aa6;
+      box-shadow: inset -4px -4px #94b9ff, inset 4px 4px #2b4580;
+      padding: 12px 20px;
+      display: inline-block;
+    }
 
-h1 {
-    margin: 10px;
-}
+    .title-box h1 {
+      font-size: 24px;
+      color: #ffcb05;
+      text-shadow: 2px 2px #3c5aa6, -1px -1px #3c5aa6;
+      margin: 0;
+      letter-spacing: 1px;
+    }
 
-h2 {
-    margin: 3px;
-    font-size: 1.2em;
-}
+    .subtitle {
+      color: #3c5aa6;
+      font-size: 14px;
+      text-shadow: none;
+    }
 
-a {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+    /* ==== Rows for each section ==== */
+    .sections-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+    }
 
-a:hover {
-    color: var(--text-color);
-}
+    .menu-section {
+      width: 100%;
+      margin-bottom: 0;
+    }
 
-#games {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-    justify-content: center;
-    justify-items: center;
-    margin: 0 auto;
-}
+    .section-label {
+      text-align: center;
+      font-size: 16px;
+      color: #3c5aa6;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
 
-.game-card {
-    background-color: var(--primary-color);
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    width: 250px;
-    height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 2px solid #ccc; /* Light gray border */
-}
+    .menu-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
 
-.game-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Darker shadow for contrast */
-}
+    .menu-box {
+      background: #ffffff;
+      border: 4px solid #3c5aa6;
+      box-shadow: inset -4px -4px #94b9ff, inset 4px 4px #2b4580;
+      padding: 20px 30px;
+      width: 420px;
+      position: relative;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
 
-.game-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 15px 15px 0 0;
-}
+    .section-title {
+      font-size: 16px;
+      color: #3c5aa6;
+      text-transform: uppercase;
+      border-bottom: 2px solid #3c5aa6;
+      margin: 10px 0 8px;
+      padding-bottom: 2px;
+    }
 
-.game-card p {
-    margin: 0;
-    padding: 8px;
-    font-size: 0.875rem;
-    background-color: rgba(245, 248, 40, 0.8); /* Semi-transparent white */
-    border-radius: 0 0 15px 15px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-}
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
 
-        /* Style for the Pokémon Games image */
-        .pokemon-header {
-            width: 500px; /* Adjust as needed */
-            height: auto;
-            margin: 20px 0;
-        }
-    </style>
+    li {
+      font-size: 18px;
+      padding: 8px 40px;
+      margin: 5px 0;
+      position: relative;
+      cursor: pointer;
+      color: #222;
+      transition: background-color 0.1s;
+    }
+
+    li::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background: url('arrow.png') no-repeat center/contain;
+      opacity: 0;
+      image-rendering: pixelated;
+    }
+
+    li:hover::before {
+      opacity: 1;
+      animation: cursorBlink 0.6s infinite;
+    }
+
+    li:hover {
+      background: #cbe3ff;
+      color: #000;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .label {
+      font-size: 12px;
+      color: #555;
+      margin-left: 6px;
+    }
+
+    .pokeball-corner {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      background: url('pokeball.png') no-repeat center/contain;
+      image-rendering: pixelated;
+    }
+
+    @media (max-width: 900px) {
+      .sections-wrap {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .menu-box {
+        width: 100%;
+        max-height: none;
+      }
+    }
+  </style>
 </head>
 <body>
-    <center>
-        <!-- Replace "Pokémon Games" text with an image -->
-        <img src="../../icons/pokemonlogo.png" alt="pokemon logo" class="pokemon-header" />
-        <h2 id="a"></h2>
-        <br />
-        <div id="games">
-            <div class="game-card">
-                <a href="../pokemonred/index.html">
-                    <img src="../../icons/pokemonred.png" />
-                    <p>Pokémon Red</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemonblue/index.html">
-                    <img src="../../icons/pokemonblue.png" />
-                    <p>Pokémon Blue</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemonyellow/index.html">
-                    <img src="../../icons/pokemonyellow.png" />
-                    <p>Pokémon Yellow</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemongold/index.html">
-                    <img src="../../icons/pokemongold.png" />
-                    <p>Pokémon Gold</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemonsilver/index.html">
-                    <img src="../../icons/pokemonsilver.png" />
-                    <p>Pokémon Silver</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemoncrystal/index.html">
-                    <img src="../../icons/pokemoncrystal.png" />
-                    <p>Pokémon Crystal</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemonbrown/index.html">
-                    <img src="../../icons/pokemonbrown.png" />
-                    <p>Pokémon Brown</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokepink/index.html">
-                    <img src="../../icons/pokepink.png" />
-                    <p>Pokémon Pink</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokeprism/index.html">
-                    <img src="../../icons/pokeprism.png" />
-                    <p>Pokémon Prism</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemonruby/index.html">
-                    <img src="../../icons/pokemonruby.png" />
-                    <p>Pokémon Ruby</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemonsapphire/index.html">
-                    <img src="../../icons/pokemonsapphire.png" />
-                    <p>Pokémon Sapphire</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemonemerald/index.html">
-                    <img src="../../icons/pokemonemerald.png" />
-                    <p>Pokémon Emerald</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemonfirered/index.html">
-                    <img src="../../icons/pokemonfirered.png" />
-                    <p>Pokémon FireRed</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokemonleafgreen/index.html">
-                    <img src="../../icons/pokemonleafgreen.png" />
-                    <p>Pokémon LeafGreen</p>
-                </a>
-            </div>
-            <div class="game-card">
-                <a href="../pokeunbound/index.html">
-                    <img src="../../icons/pokeunbound.png" />
-                    <p>Pokémon Unbound</p>
-                </a>
-            </div>
-            <script src="js/stars.js"></script>
-            <script src="js/topbar.js"></script>
-            <script src="js/tabcloaking.js"></script> 
-            <script src="js/cookies.js"></script>
+  <div class="title-box">
+    <h1>Pokémon: Sienna Edition</h1>
+    <div class="subtitle">Hahahahaha Pokemon hahahahah</div>
+  </div>
+
+  <div class="sections-wrap">
+    <!-- ===== Main Series Column ===== -->
+    <div class="menu-section">
+      <div class="section-label">Main Series</div>
+      <div class="menu-row">
+        <div class="menu-box">
+          <div class="pokeball-corner"></div>
+          
+          <div class="section-title">Generation I (Game Boy)</div>
+          <ul>
+            <a href="pokemonred/index.html"><li>Red <span class="label">[GB]</span></li></a>
+            <a href="pokemonblue/index.html"><li>Blue <span class="label">[GB]</span></li></a>
+            <a href="pokemonyellow/index.html"><li>Yellow <span class="label">[GB]</span></li></a>
+          </ul>
+
+          <div class="section-title">Generation II (Game Boy Color)</div>
+          <ul>
+            <a href="pokemongold/index.html"><li>Gold <span class="label">[GBC]</span></li></a>
+            <a href="pokemonsilver/index.html"><li>Silver <span class="label">[GBC]</span></li></a>
+            <a href="pokemoncrystal/index.html"><li>Crystal <span class="label">[GBC]</span></li></a>
+          </ul>
+
+          <div class="section-title">Generation III (Game Boy Advance)</div>
+          <ul>
+            <a href="pokemonruby/index.html"><li>Ruby <span class="label">[GBA]</span></li></a>
+            <a href="pokemonsapphire/index.html"><li>Sapphire <span class="label">[GBA]</span></li></a>
+            <a href="pokemonemerald/index.html"><li>Emerald <span class="label">[GBA]</span></li></a>
+            <a href="pokemonfirered/index.html"><li>FireRed <span class="label">[GBA]</span></li></a>
+            <a href="pokemonleafgreen/index.html"><li>LeafGreen <span class="label">[GBA]</span></li></a>
+          </ul>
         </div>
-        <br />
-    </center>
+      </div>
+    </div>
+
+    <!-- ===== Modded Editions Column ===== -->
+    <div class="menu-section">
+      <div class="section-label">Modded Editions</div>
+      <div class="menu-row">
+        <div class="menu-box">
+          <div class="pokeball-corner"></div>
+          <ul>
+            <a href="pokeprism/index.html"><li>Pokémon Prism <span class="label">[GBC Mod]</span></li></a>
+            <a href="pokepink/index.html"><li>Pokémon Pink <span class="label">[GBC Mod]</span></li></a>
+            <a href="pokeultraviolet/index.html"><li>Pokémon Ultraviolet <span class="label">[GBA Mod]</span></li></a>
+            <a href="pokejupiter/index.html"><li>Pokémon Jupiter <span class="label">[GBA Mod]</span></li></a>
+            <a href="pokeunbound/index.html"><li>Pokémon Unbound <span class="label">[GBA Mod]</span></li></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

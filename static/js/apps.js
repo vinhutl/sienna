@@ -224,7 +224,7 @@ loadFavorites();
 // ===============================
 // Load games JSON
 // ===============================
-fetch('js/apps.json')
+fetch('static/js/apps.json')
   .then(response => {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
@@ -722,9 +722,6 @@ toggleFullscreen() {
               tab.iframe.src = '';
             }
           });
-          if (typeof customLoadingScreen !== 'undefined' && customLoadingScreen) {
-            customLoadingScreen.classList.remove('active', 'fade-out');
-          }
         }, 300);
       }
 
@@ -1514,6 +1511,45 @@ toggleFullscreen() {
         } else {
           console.log('Notification:', message);
         }
+      }
+
+      // Basic history navigation between tabs
+      navigateBack() {
+        if (currentHistoryIndex <= 0) return;
+        currentHistoryIndex--;
+        const entry = navigationHistory[currentHistoryIndex];
+        if (!entry) return;
+        let existingId = null;
+        this.tabs.forEach((tab, id) => {
+          if (!tab.isGameSelection && tab.name.toLowerCase() === entry.name.toLowerCase()) {
+            existingId = id;
+          }
+        });
+        if (existingId) {
+          this.switchToTab(existingId);
+        } else {
+          this.createTab(entry.url, entry.name);
+        }
+        this.updateNavigationButtons();
+      }
+
+      navigateForward() {
+        if (currentHistoryIndex >= navigationHistory.length - 1) return;
+        currentHistoryIndex++;
+        const entry = navigationHistory[currentHistoryIndex];
+        if (!entry) return;
+        let existingId = null;
+        this.tabs.forEach((tab, id) => {
+          if (!tab.isGameSelection && tab.name.toLowerCase() === entry.name.toLowerCase()) {
+            existingId = id;
+          }
+        });
+        if (existingId) {
+          this.switchToTab(existingId);
+        } else {
+          this.createTab(entry.url, entry.name);
+        }
+        this.updateNavigationButtons();
       }
     }
 
