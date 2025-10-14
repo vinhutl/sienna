@@ -1,11 +1,6 @@
 ﻿function loadSidebar() {
   const sidebarHTML = `
     <div class="sidebar">
-      <div class="logo">
-        <img src="static/img/tenplogo.webp" alt="vinhutl logo" />
-      </div>
-      <div class="divider"></div>
-
       <div class="nav-section">
         <button class="nav-btn" onclick="navigate('index.html')" data-page="index.html" data-tooltip="Home">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -14,7 +9,7 @@
           </svg>
         </button>
 
-        <button class="nav-btn" onclick="navigate('static/games.html')" data-page="games.html" data-tooltip="Games">
+        <button class="nav-btn" onclick="navigate('games.html')" data-page="games.html" data-tooltip="Games">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="6" y1="11" x2="10" y2="11"/>
             <line x1="8" y1="9" x2="8" y2="13"/>
@@ -24,7 +19,7 @@
           </svg>
         </button>
 
-        <button class="nav-btn" onclick="navigate('static/apps.html')" data-page="apps.html" data-tooltip="Apps">
+        <button class="nav-btn" onclick="navigate('apps.html')" data-page="apps.html" data-tooltip="Apps">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="7"/>
             <rect x="14" y="3" width="7" height="7"/>
@@ -33,14 +28,18 @@
           </svg>
         </button>
 
-        <button class="nav-btn" onclick="navigate('static/settings.html')" data-page="settings.html" data-tooltip="Settings">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M12 1v6m0 6v6"/>
-            <path d="M17 7l-5 5"/>
-            <path d="M7 7l5 5"/>
-            <path d="M7 17l5-5"/>
-            <path d="M17 17l-5-5"/>
+        <button class="nav-btn" onclick="navigate('settings.html')" data-page="settings.html" data-tooltip="Settings">
+          <!-- Unicode gear fallback to avoid SVG rendering issues -->
+          <span class="text-icon" aria-hidden="true">⚙</span>
+        </button>
+
+        <!-- Open in about:blank button -->
+        <button class="nav-btn small-btn" onclick="openInBlank()" data-page="" data-tooltip="Open in blank">
+          <!-- external-link icon (feather-style) -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
           </svg>
         </button>
       </div>
@@ -118,4 +117,105 @@ function navigate(page) {
   window.location.href = basePath + '/' + page;
 }
 
-document.addEventListener("DOMContentLoaded", loadSidebar);
+// Open the current site inside an about:blank window using an iframe.
+// This preserves the current page's origin in the iframe while keeping
+// the browser address bar empty.
+function openInBlank() {
+  try {
+    const currentUrl = window.location.href;
+    const newWin = window.open('about:blank', '_blank');
+    if (!newWin) return; // popup blocked
+    // Wait for about:blank to be ready, then write an iframe
+    newWin.document.open();
+    newWin.document.write(`<!doctype html><html><head><title>${document.title}</title><meta charset="utf-8"></head><body style="margin:0;height:100vh;">
+      <iframe src="${currentUrl}" style="border:0;width:100%;height:100%;"></iframe>
+    </body></html>`);
+    newWin.document.close();
+  } catch (e) {
+    // Fallback: navigate normally if writing fails
+    window.open(window.location.href, '_blank');
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadSidebar();
+  
+  // Add sidebar styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .sidebar {
+      width: 50px;
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      padding: 15px 0;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border: none;
+      color: #a0a0a0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin: 0 auto;
+      outline: none;
+    }
+
+    .nav-btn:focus {
+      outline: none !important;
+    }
+
+    .nav-btn:focus-visible {
+      outline: none !important;
+    }
+
+    .nav-btn {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-btn:hover {
+      color: #ffffff;
+    }
+
+    .nav-btn.active {
+      color: #ffffff;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    /* slightly smaller button for secondary actions */
+    .small-btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .text-icon {
+      font-size: 28px; /* larger gear */
+      line-height: 1;
+      color: currentColor;
+      display: inline-block;
+      pointer-events: none;
+      transform: translateY(1px);
+    }
+
+    #tooltip {
+      position: fixed;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #000;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 1000;
+    }
+  `;
+  document.head.appendChild(style);
+});
