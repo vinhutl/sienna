@@ -287,6 +287,13 @@
     "favicon": ""
   },
   {
+    "name": "Sprunki",
+    "image": "static/icons/sprunki.webp",
+    "url": "static/mages/sprunki/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
     "name": "Bad Ice Cream",
     "image": "static/icons/badicecream.webp",
     "url": "static/mages/badicecream/index.html",
@@ -2044,86 +2051,156 @@
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Tricky",
+    "name": "Friday Night Funkin' vs. Tricky",
     "image": "static/icons/fnftricky.webp",
     "url": "static/mages/fnftricky/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Whitty",
+    "name": "Friday Night Funkin' vs. Whitty",
     "image": "static/icons/fnfwhitty.webp",
     "url": "static/mages/fnfwhitty/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Sonic.EXE",
+    "name": "Friday Night Funkin' vs. Sonic.EXE",
     "image": "static/icons/fnfsonicexe.webp",
     "url": "static/mages/fnfsonicexe/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Sky",
+    "name": "Friday Night Funkin' vs. Sky",
     "image": "static/icons/fnfsky.webp",
     "url": "static/mages/fnfsky/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. KAPI",
+    "name": "Friday Night Funkin' vs. KAPI",
     "image": "static/icons/fnfkapi.webp",
     "url": "static/mages/fnfkapi/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Hex",
+    "name": "Friday Night Funkin' vs. Hex",
     "image": "static/icons/fnfhex.webp",
     "url": "static/mages/fnfhex/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Hatsune Miku",
+    "name": "Friday Night Funkin' vs. Hatsune Miku",
     "image": "static/icons/fnfmiku.webp",
     "url": "static/mages/fnfmiku/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Mario's Madness",
+    "name": "Friday Night Funkin' vs. Mario's Madness",
     "image": "static/icons/fnfmm.webp",
     "url": "static/mages/fnfmm/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Shaggy",
+    "name": "Friday Night Funkin' vs. Shaggy",
     "image": "static/icons/fnfshaggy.webp",
     "url": "static/mages/fnfshaggy/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Garcello",
+    "name": "Friday Night Funkin' vs. Garcello",
     "image": "static/icons/fnfgarcello.webp",
     "url": "static/mages/fnfgarcello/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Cyber Sensation",
+    "name": "Friday Night Funkin' vs. Cyber Sensation",
     "image": "static/icons/fnfcs.webp",
     "url": "static/mages/fnfcs/index.html",
     "category": "Action",
     "favicon": ""
   },
   {
-    "name": "Friday Night Funkin vs. Hypno Lullaby",
+    "name": "Friday Night Funkin' vs. Hypno Lullaby",
     "image": "static/icons/fnfhl.webp",
     "url": "static/mages/fnfhl/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
+    "name": "Friday Night Funkin' vs. QT",
+    "image": "static/icons/fnfqt.webp",
+    "url": "static/mages/fnfqt/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
+    "name": "Friday Night Funkin' vs. BOPCITY",
+    "image": "static/icons/fnfbc.webp",
+    "url": "static/mages/fnfbc/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
+    "name": "Friday Night Funkin' vs. TWIDDLEFINGER",
+    "image": "static/icons/fnftf.webp",
+    "url": "static/mages/fnftf/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
+    "name": "Friday Night Funkin': Pibby: Apocalypse",
+    "image": "static/icons/fnfpb.webp",
+    "url": "static/mages/fnfpb/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
+    "name": "Friday Night Funkin': Mistful Crimson Morning Reboot",
+    "image": "static/icons/fnfmcmr.webp",
+    "url": "static/mages/fnfmcmr/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
+    "name": "Friday Night Funkin': Jeffy's Endless Aethos",
+    "image": "static/icons/fnfjea.webp",
+    "url": "static/mages/fnfjea/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
+    "name": "Friday Night Funkin': FIRE IN THE HOLE: Lobotomy Dash Funkin'",
+    "image": "static/icons/fnfldf.webp",
+    "url": "static/mages/fnfldf/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
+    "name": "Friday Night Funkin': Darkness Takeover",
+    "image": "static/icons/fnfdt.webp",
+    "url": "static/mages/fnfdt/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
+    "name": "Friday Night Funkin': Creepypasta JP",
+    "image": "static/icons/fnfcjp.webp",
+    "url": "static/mages/fnfcjp/index.html",
+    "category": "Action",
+    "favicon": ""
+  },
+  {
+    "name": "Friday Night Funkin': 17 Bucks: Floor 1",
+    "image": "static/icons/fnf.webp",
+    "url": "static/mages/fnf/index.html",
     "category": "Action",
     "favicon": ""
   },
