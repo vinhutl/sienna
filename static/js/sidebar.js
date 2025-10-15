@@ -9,7 +9,7 @@
           </svg>
         </button>
 
-        <button class="nav-btn" onclick="navigate('games.html')" data-page="games.html" data-tooltip="Games">
+        <button class="nav-btn" onclick="navigate('/g')" data-page="/g" data-tooltip="Games">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="6" y1="11" x2="10" y2="11"/>
             <line x1="8" y1="9" x2="8" y2="13"/>
@@ -19,7 +19,7 @@
           </svg>
         </button>
 
-        <button class="nav-btn" onclick="navigate('apps.html')" data-page="apps.html" data-tooltip="Apps">
+        <button class="nav-btn" onclick="navigate('/a')" data-page="/a" data-tooltip="Apps">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="7"/>
             <rect x="14" y="3" width="7" height="7"/>
@@ -28,7 +28,7 @@
           </svg>
         </button>
 
-        <button class="nav-btn" onclick="navigate('settings.html')" data-page="settings.html" data-tooltip="Settings">
+        <button class="nav-btn" onclick="navigate('/s')" data-page="/s" data-tooltip="Settings">
           <!-- Unicode gear fallback to avoid SVG rendering issues -->
           <span class="text-icon" aria-hidden="true">⚙</span>
         </button>
@@ -112,9 +112,14 @@ function setActiveButton() {
 }
 
 function navigate(page) {
-  // Always navigate from root using absolute path
-  const basePath = window.location.origin;
-  window.location.href = basePath + '/' + page;
+  // Navigate to the specified path (could be a short redirect like /g or a full page like index.html)
+  if (page.startsWith('/')) {
+    // If it's already a path (like /g, /a, /s), use it directly
+    window.location.href = window.location.origin + page;
+  } else {
+    // If it's a filename (like index.html), add the slash
+    window.location.href = window.location.origin + '/' + page;
+  }
 }
 
 // Open the current site inside an about:blank window using an iframe.

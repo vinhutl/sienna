@@ -152,16 +152,6 @@ const backgroundThemes = {
     '--border-color': '#4a5568',
     '--background-image': "url('/static/assets/backgrounds/isolated.jpg')",
   },
-      theme13: {
-    '--primary-bg-1': '#181c24',
-    '--primary-bg-2': '#000000',
-    '--primary-text': '#ffffff',
-    '--secondary-text': '#888',
-    '--accent-text': '#9ca3af',
-    '--sidebar-bg': '#2d3748',
-    '--border-color': '#4a5568',
-    '--background-image': "url('/static/assets/backgrounds/yourname.gif')",
-  },
 };
 
 // Function to extract the raw URL from the CSS `url(...)` string

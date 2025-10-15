@@ -73,7 +73,7 @@ body::after {
     font-size: 5rem;
     font-weight: 400;
     letter-spacing: 0.05em;
-    margin-bottom: 2rem;
+    margin-bottom: 0.75rem;
     text-shadow:
         0 0 20px var(--text-shadow-1),
         0 0 40px var(--text-shadow-2),
@@ -153,8 +153,7 @@ body::after {
 .beta {
     font-size: 14px;
     color: var(--accent-text);
-    height: 100px;
-    margin-top: 8px;
+    margin: 4px 0;
     letter-spacing: 2px;
     text-transform: uppercase;
 }

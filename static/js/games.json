@@ -119,6 +119,13 @@
     "favicon": "mages/missInconspicuous/missInconspicuous.webp"
   },
   {
+    "name": "Miss Inconspicuous 2",
+    "image": "static/icons/missInconspicuous2.webp",
+    "url": "static/mages/missInconspicuous2/index.html",
+    "category": "Casual",
+    "favicon": "mages/missInconspicuous2/missInconspicuous2.webp"
+  },
+  {
     "name": "Doki Doki Literature Club",
     "image": "static/icons/dokidoki.webp",
     "url": "static/mages/dokidokiliteratureclub/index.html",
@@ -220,6 +227,13 @@
     "name": "Get Yoked",
     "image": "static/icons/getyoked.webp",
     "url": "static/mages/getyoked/index.html",
+    "category": "Strategy",
+    "favicon": ""
+  },
+  {
+    "name": "Please Don't Feed Me",
+    "image": "static/icons/pleasedontfeedme.webp",
+    "url": "static/mages/pleasedontfeedme/index.html",
     "category": "Strategy",
     "favicon": ""
   },
@@ -2667,6 +2681,13 @@
     "favicon": "mages/mario/mario.webp"
   },
   {
+    "name": "NSMB Mario Vs Luigi",
+    "image": "static/icons/mariovsluigi.webp",
+    "url": "static/mages/mariovsluigi/index.html",
+    "category": "Casual",
+    "favicon": "mages/mariovsluigi/mariovsluigi.webp"
+  },
+  {
     "name": "Mario Paint",
     "image": "static/icons/mp.webp",
     "url": "static/mages/mariopaint/index.html",
@@ -3405,6 +3426,13 @@
     "name": "Soundboard",
     "image": "static/icons/soundboard.webp",
     "url": "static/mages/soundboard/index.html",
+    "category": "Casual",
+    "favicon": "mages/soundboard/soundboard.webp"
+  },
+  {
+    "name": "Soundboard 2",
+    "image": "static/icons/soundboard2.webp",
+    "url": "static/mages/soundboard2/index.html",
     "category": "Casual",
     "favicon": "mages/soundboard/soundboard.webp"
   },
