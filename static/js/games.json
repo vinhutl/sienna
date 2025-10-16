@@ -7,13 +7,6 @@
     "favicon": "favicon.ico"
   },
   {
-    "name": "Champions",
-    "image": "static/icons/champions.webp",
-    "url": "static/mages/champions/1v1.lol/index.html",
-    "category": "Casual",
-    "favicon": "mages/1v1lol/1v1lol.webp"
-  },
-  {
     "name": "1v1.lol",
     "image": "static/icons/1v1lol.webp",
     "url": "static/mages/1v1lol/index.html",
@@ -626,6 +619,27 @@
     "name": "Backrooms",
     "image": "static/icons/backrooms.webp",
     "url": "static/mages/backrooms/index.html",
+    "category": "Casual",
+    "favicon": "mages/backrooms/backrooms.webp"
+  },
+  {
+    "name": "Skibidi In The Backrooms",
+    "image": "static/icons/skibidiinthebackrooms.webp",
+    "url": "static/mages/skibidiinthebackrooms/index.html",
+    "category": "Casual",
+    "favicon": "mages/backrooms/backrooms.webp"
+  },
+  {
+    "name": "Phasma",
+    "image": "static/icons/phasma.webp",
+    "url": "static/mages/phasma/index.html",
+    "category": "Casual",
+    "favicon": "mages/backrooms/backrooms.webp"
+  },
+  {
+    "name": "The Baby In Yellow",
+    "image": "static/icons/thebabyinyellow.webp",
+    "url": "static/mages/thebabyinyellow/index.html",
     "category": "Casual",
     "favicon": "mages/backrooms/backrooms.webp"
   },
@@ -1589,6 +1603,20 @@
     "favicon": "mages/finalninja/finalninja.webp"
   },
   {
+    "name": "Glass Bridge obby",
+    "image": "static/icons/glassbridgeobby.webp",
+    "url": "static/mages/glassbridgeobby/index.html",
+    "category": "Casual",
+    "favicon": "mages/glassbridgeobby/glassbridgeobby.webp"
+  },
+  {
+    "name": "Speed Each Click",
+    "image": "static/icons/speedeachclick.webp",
+    "url": "static/mages/speedeachclick/index.html",
+    "category": "Casual",
+    "favicon": "mages/speedeachclick/speedeachclick.webp"
+  },
+  {
     "name": "Fireboy Watergirl",
     "image": "static/icons/fireboywatergirl.webp",
     "url": "static/mages/fireboywatergirl/index.html",
@@ -1981,13 +2009,6 @@
     "favicon": "mages/trainsurfers/trainsurfers.webp"
   },
   {
-    "name": "Osu!",
-    "image": "static/icons/osu.webp",
-    "url": "static/mages/osu/index.html",
-    "category": "Casual",
-    "favicon": "mages/osuscratch/osuscratch.webp"
-  },
-  {
     "name": "Osu Scratch",
     "image": "static/icons/osuscratch.webp",
     "url": "static/mages/osuscratch/index.html",
@@ -2278,6 +2299,13 @@
     "name": "Geometry Dash Lite",
     "image": "static/icons/geometrydashlite.webp",
     "url": "static/mages/geometrydashlite/index.html",
+    "category": "Casual",
+    "favicon": "mages/geometrydashlite/geometrydashlite.webp"
+  },
+  {
+    "name": "Geometry Dash Wave",
+    "image": "static/icons/gdashwave.webp",
+    "url": "static/mages/gdashwave/index.html",
     "category": "Casual",
     "favicon": "mages/geometrydashlite/geometrydashlite.webp"
   },

@@ -544,6 +544,12 @@ toggleFullscreen() {
         this.newTabBtn = document.getElementById('new-tab-btn');
         this.keepAliveToggle = document.getElementById('keep-alive-toggle');
         this.modalHelper = document.querySelector('.modal-helper-text');
+
+        // New actions
+        this.uploadFileBtn = document.getElementById('upload-file-btn');
+        this.exportDataBtn = document.getElementById('export-data-btn');
+        this.openTextEditorBtn = document.getElementById('open-text-editor-btn');
+        this.importSessionBtn = document.getElementById('import-session-btn');
       }
 
       setupEventListeners() {
@@ -557,6 +563,72 @@ toggleFullscreen() {
         this.refreshBtn?.addEventListener('click', () => this.refreshCurrentTab());
         this.fullscreenBtn?.addEventListener('click', () => this.toggleFullscreen());
         this.openNewTabBtn?.addEventListener('click', () => this.openInNewWindow());
+
+        // New action handlers
+        this.uploadFileBtn?.addEventListener('click', async () => {
+          try {
+            const file = await (window.FileBridge ? window.FileBridge.pickFile({ as: 'auto' }) : null);
+            if (!file) return;
+            const tab = this.tabs.get(this.activeTabId);
+            if (!tab || !tab.iframe || !tab.iframe.contentWindow) return;
+            // Prefer posting ArrayBuffer for binary, string for text
+            const payload = {
+              type: 'sienna:file',
+              name: file.name,
+              size: file.size,
+              mime: file.type,
+              lastModified: file.lastModified,
+            };
+            if (typeof file.content === 'string') payload.text = file.content;
+            else if (file.content instanceof ArrayBuffer) payload.arrayBuffer = file.content;
+            else payload.text = String(file.content);
+            tab.iframe.contentWindow.postMessage(payload, '*');
+            this.showNotification(`Uploaded ${file.name} to app`);
+          } catch (e) {
+            console.error('Upload failed', e);
+            this.showNotification('Upload canceled or failed');
+          }
+        });
+
+        this.exportDataBtn?.addEventListener('click', () => {
+          try {
+            const data = this.gatherSessionData();
+            if (window.FileBridge) window.FileBridge.exportJSON(data, 'sienna-session.json');
+            else console.log('Export data', data);
+          } catch (e) {
+            console.error('Export failed', e);
+          }
+        });
+
+        this.openTextEditorBtn?.addEventListener('click', async () => {
+          try {
+            // If user wants to start from a file, prompt; otherwise open blank
+            const pick = await (window.FileBridge ? window.FileBridge.pickFile({ as: 'text', accept: '.txt,.md,.json,.csv,.html,.css,.js,.ts' }) : null).catch(()=>null);
+            if (pick && window.FileBridge) {
+              window.FileBridge.openInTextEditor({ name: pick.name || 'untitled.txt', content: typeof pick.content === 'string' ? pick.content : '' });
+            } else if (window.FileBridge) {
+              window.FileBridge.openInTextEditor({ name: 'untitled.txt', content: '' });
+            }
+          } catch (e) {
+            if (window.FileBridge) window.FileBridge.openInTextEditor({ name: 'untitled.txt', content: '' });
+          }
+        });
+
+        this.importSessionBtn?.addEventListener('click', async () => {
+          try {
+            const file = await (window.FileBridge ? window.FileBridge.pickFile({ as: 'text', accept: '.json' }) : null);
+            if (!file || typeof file.content !== 'string') return;
+            const json = JSON.parse(file.content);
+            const tab = this.tabs.get(this.activeTabId);
+            if (tab?.iframe?.contentWindow) {
+              tab.iframe.contentWindow.postMessage({ type: 'sienna:session', payload: json }, '*');
+              this.showNotification('Session JSON sent to app');
+            }
+          } catch (e) {
+            console.error('Import session failed', e);
+            this.showNotification('Invalid JSON');
+          }
+        });
 
         // Keep alive toggle
         this.keepAliveToggle?.addEventListener('click', () => this.toggleKeepAlive());
@@ -1511,6 +1583,23 @@ toggleFullscreen() {
         } else {
           console.log('Notification:', message);
         }
+      }
+
+      gatherSessionData() {
+        const ls = {};
+        try {
+          for (let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); ls[k]=localStorage.getItem(k);} 
+        } catch (_) {}
+        const ss = {};
+        try {
+          for (let i=0;i<sessionStorage.length;i++){ const k=sessionStorage.key(i); ss[k]=sessionStorage.getItem(k);} 
+        } catch (_) {}
+        let cookies = {};
+        try {
+          const c = document.cookie || '';
+          cookies = c.split('; ').filter(Boolean).reduce((acc, x)=>{ const idx=x.indexOf('='); if(idx===-1) return acc; acc[decodeURIComponent(x.slice(0,idx))]=decodeURIComponent(x.slice(idx+1)); return acc; },{});
+        } catch (_) {}
+        return { localStorage: ls, sessionStorage: ss, cookies };
       }
 
       // Basic history navigation between tabs

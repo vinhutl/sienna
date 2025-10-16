@@ -324,6 +324,55 @@
         dropZone.addEventListener('click', () => {
             fileUpload.click();
         });
+
+        // Initialize from sessionStorage if launched via FileBridge
+        (function initFromSession(){
+          try {
+            const raw = sessionStorage.getItem('sienna:texteditor:init');
+            if (raw) {
+              const data = JSON.parse(raw);
+              if (data && typeof data.content === 'string') {
+                editor.value = data.content;
+                filenameInput.value = data.name || 'untitled.txt';
+                showEditor();
+                updateStats();
+              }
+              // Clear it so we don't reuse on next open
+              sessionStorage.removeItem('sienna:texteditor:init');
+            }
+          } catch (_) {}
+        })();
+
+        // Listen for messages from parent to open files or request export
+        window.addEventListener('message', (ev) => {
+            const msg = ev && ev.data;
+            if (!msg || typeof msg !== 'object') return;
+            if (msg.type === 'sienna:file') {
+                // File delivered from parent
+                if (typeof msg.text === 'string') {
+                    editor.value = msg.text;
+                } else if (msg.arrayBuffer) {
+                    try {
+                        const dec = new TextDecoder();
+                        editor.value = dec.decode(msg.arrayBuffer);
+                    } catch (e) {
+                        editor.value = '';
+                    }
+                }
+                filenameInput.value = msg.name || 'untitled.txt';
+                showEditor();
+                updateStats();
+            } else if (msg.type === 'sienna:request-export') {
+                // Parent requests current document as downloadable file
+                const payload = {
+                    type: 'sienna:download',
+                    filename: filenameInput.value || 'untitled.txt',
+                    mime: 'text/plain',
+                    data: editor.value
+                };
+                try { window.parent.postMessage(payload, '*'); } catch (_) {}
+            }
+        });
     </script>
 </body>
 </html>
